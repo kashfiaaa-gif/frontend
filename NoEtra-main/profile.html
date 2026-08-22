@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Profile | NoEtra</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="profile-page"></body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="profile-nav">
+
+        <a
+            href="dashboard.html"
+            class="profile-logo">
+
+            🎓 NoEtra
+
+        </a>
+
+
+        <div class="profile-nav-right">
+
+            <a href="dashboard.html">
+                🏠 Dashboard
+            </a>
+
+            <button
+                id="themeBtn"
+                type="button">
+
+                🌙 Dark
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         PROFILE
+    ========================== -->
+
+    <main class="profile-container">
+
+        <section class="profile-card">
+
+
+            <!-- PROFILE ICON -->
+
+            <div class="profile-icon">
+                👤
+            </div>
+
+
+            <h1>
+                My Profile
+            </h1>
+
+
+            <p class="profile-subtitle">
+                Manage your NoEtra account information.
+            </p>
+
+
+            <!-- NAME -->
+
+            <label for="profileName">
+                Name
+            </label>
+
+            <input
+                id="profileName"
+                type="text"
+                placeholder="Enter your name"
+                autocomplete="name"
+            >
+
+
+            <!-- EMAIL -->
+
+            <label for="profileEmail">
+                Email
+            </label>
+
+            <input
+                id="profileEmail"
+                type="email"
+                placeholder="Enter your email"
+                autocomplete="email"
+            >
+
+            <p class="profile-note">
+                Make sure your email address is correct.
+            </p>
+
+
+            <!-- SAVE -->
+
+            <button
+                id="saveProfile"
+                type="button">
+
+                💾 Save Changes
+
+            </button>
+
+
+            <!-- MESSAGE -->
+
+            <p id="profileMessage"></p>
+
+
+            <!-- BACK -->
+
+            <a
+                href="dashboard.html"
+                class="profile-back">
+
+                ← Back to Dashboard
+
+            </a>
+
+
+        </section>
+
+    </main>
+
+
+    <script src="js/profile.js"></script>
+
+</body>
+
+</html>

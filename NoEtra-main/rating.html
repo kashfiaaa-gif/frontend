@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Resource Rating | NoEtra</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+
+<body class="rating-page">
+
+
+<!-- =========================
+     NOETRA NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🎓 NoEtra
+    </div>
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open menu">
+
+        ☰
+
+    </button>
+
+</header>
+
+
+<!-- =========================
+     SIDE MENU OVERLAY
+========================= -->
+
+<div
+    class="menu-overlay"
+    id="menuOverlay">
+</div>
+
+
+<!-- =========================
+     SIDE MENU
+========================= -->
+
+<aside
+    class="side-menu"
+    id="sideMenu">
+
+
+    <button
+        class="close-menu"
+        id="closeMenu"
+        type="button"
+        aria-label="Close menu">
+
+        ×
+
+    </button>
+
+
+    <div class="side-menu-logo">
+        🎓 NoEtra
+    </div>
+
+
+    <nav class="side-menu-links">
+
+        <a href="index.html">
+            🏠 Home
+        </a>
+
+        <a href="dashboard.html">
+            📊 Dashboard
+        </a>
+
+        <a href="notes.html">
+            📝 Notes
+        </a>
+
+        <a href="quiz.html">
+            🧠 Quiz
+        </a>
+
+        <a href="community.html">
+            💬 Community
+        </a>
+
+        <a href="bookmark.html">
+            🔖 Bookmarks
+        </a>
+
+    </nav>
+
+</aside>
+
+
+<!-- =========================
+     RATING CONTENT
+========================= -->
+
+<main class="rating">
+
+
+    <h2>
+        ⭐ Resource Rating
+    </h2>
+
+
+    <p class="section-text">
+        Rate a learning resource and share your experience.
+    </p>
+
+
+    <!-- =========================
+         SUBMIT RATING
+    ========================== -->
+
+    <div class="rating-card">
+
+
+        <label for="topicSelect">
+            Topic
+        </label>
+
+
+        <select id="topicSelect" required>
+
+            <option value="">
+                -- Select a topic --
+            </option>
+
+        </select>
+
+
+        <label for="resourceSelect">
+            Resource
+        </label>
+
+
+        <select id="resourceSelect" required>
+
+            <option value="">
+                -- Select a topic first --
+            </option>
+
+        </select>
+
+
+        <label for="rating">
+            Your Rating
+        </label>
+
+
+        <select id="rating">
+
+            <option value="1">
+                ⭐ 1 Star
+            </option>
+
+            <option value="2">
+                ⭐⭐ 2 Stars
+            </option>
+
+            <option
+                value="3"
+                selected>
+
+                ⭐⭐⭐ 3 Stars
+
+            </option>
+
+            <option value="4">
+                ⭐⭐⭐⭐ 4 Stars
+            </option>
+
+            <option value="5">
+                ⭐⭐⭐⭐⭐ 5 Stars
+            </option>
+
+        </select>
+
+
+        <label for="review">
+            Review
+        </label>
+
+
+        <textarea
+            id="review"
+            placeholder="Write a review (optional)">
+        </textarea>
+
+
+        <button
+            id="submitRatingBtn"
+            type="button">
+
+            ⭐ Submit Rating
+
+        </button>
+
+
+        <p id="message"></p>
+
+
+    </div>
+
+
+    <!-- =========================
+         VIEW RATINGS
+    ========================== -->
+
+    <h2 class="rating-list-title">
+        Resource Ratings
+    </h2>
+
+
+    <button
+        id="loadRatingsBtn"
+        type="button">
+
+        👀 View Ratings
+
+    </button>
+
+
+    <div id="ratingList">
+
+        <p class="section-text">
+            Enter a Resource ID and click "View Ratings".
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         BACK TO DASHBOARD
+    ========================== -->
+
+    <button
+        class="back-dashboard"
+        id="dashboardBtn"
+        type="button">
+
+        ← Back to Dashboard
+
+    </button>
+
+
+</main>
+
+
+<!-- =========================
+     RATING JAVASCRIPT
+========================= -->
+
+<script src="js/rating.js"></script>
+
+
+<!-- =========================
+     HAMBURGER MENU
+========================= -->
+
+<script>
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const closeMenu =
+        document.getElementById("closeMenu");
+
+    const sideMenu =
+        document.getElementById("sideMenu");
+
+    const menuOverlay =
+        document.getElementById("menuOverlay");
+
+
+    /* OPEN MENU */
+
+    if (menuToggle && sideMenu) {
+
+        menuToggle.addEventListener(
+            "click",
+            function () {
+
+                sideMenu.classList.add("active");
+
+                if (menuOverlay) {
+                    menuOverlay.classList.add("active");
+                }
+
+            }
+        );
+
+    }
+
+
+    /* CLOSE MENU */
+
+    if (closeMenu && sideMenu) {
+
+        closeMenu.addEventListener(
+            "click",
+            function () {
+
+                sideMenu.classList.remove("active");
+
+                if (menuOverlay) {
+                    menuOverlay.classList.remove("active");
+                }
+
+            }
+        );
+
+    }
+
+
+    /* CLICK OVERLAY TO CLOSE */
+
+    if (menuOverlay && sideMenu) {
+
+        menuOverlay.addEventListener(
+            "click",
+            function () {
+
+                sideMenu.classList.remove("active");
+
+                menuOverlay.classList.remove("active");
+
+            }
+        );
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
