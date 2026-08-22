@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>quiz - NoEtra</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quizzes — NoEtra</title>
 <style>
   :root {
-    --ink: #23282f;
-    --paper: #f6f4ee;
+    --ink: #1f1730;;
+    --paper: #faf8fc;
     --paper-raised: #ffffff;
-    --line: #dcd8cc;
-    --accent: #8a5a34;
-    --accent-soft: #e8dcc9;
+    --line: #e5e0ec;;
+    --accent: #7e368d;       /* primary purple */
+    --accent-soft: #f1e8f5;  /* light purple */
     --correct: #3f7a5a;
     --incorrect: #b5482f;
-    --muted: #74716a;
-    --font-display: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+    --muted: #6f6780;
+   --font-family: Arial, Helvetica, sans-serif;
     --font-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
+  * { box-sizing: border-box; }
 
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-ui);
+    min-height: 100vh;
+  }
 
   .wrap {
     max-width: 720px;
@@ -41,7 +48,13 @@
     margin-bottom: 8px;
   }
 
-  
+  h1 {
+    font-family: var(--font-display);
+    font-size: 34px;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
 
   .subhead {
     color: var(--muted);
@@ -100,7 +113,12 @@
     flex-shrink: 0;
   }
 
- 
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--muted);
+    font-size: 15px;
+  }
 
   /* ---------- Taking a quiz ---------- */
 
@@ -303,6 +321,122 @@
     justify-content: center;
   }
 
+  .review-section {
+    text-align: left;
+    margin-top: 40px;
+  }
+
+  .review-heading {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+
+  .review-card {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--line);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+  }
+
+  .review-card.correct { border-left-color: var(--correct); }
+  .review-card.incorrect { border-left-color: var(--incorrect); }
+
+  .review-q-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .review-q-text {
+    font-family: var(--font-display);
+    font-size: 17px;
+    line-height: 1.4;
+  }
+
+  .review-badge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .review-badge.correct {
+    background: var(--correct);
+    color: white;
+  }
+
+  .review-badge.incorrect {
+    background: var(--incorrect);
+    color: white;
+  }
+
+  .review-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .review-option .option-letter {
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+  }
+
+  .review-option.is-correct-answer {
+    border-color: var(--correct);
+    background: rgba(63, 122, 90, 0.08);
+  }
+
+  .review-option.is-correct-answer .option-letter {
+    background: var(--correct);
+    border-color: var(--correct);
+    color: white;
+  }
+
+  .review-option.is-wrong-selected {
+    border-color: var(--incorrect);
+    background: rgba(181, 72, 47, 0.08);
+  }
+
+  .review-option.is-wrong-selected .option-letter {
+    background: var(--incorrect);
+    border-color: var(--incorrect);
+    color: white;
+  }
+
+  .review-tag {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .review-tag.tag-correct { color: var(--correct); }
+  .review-tag.tag-wrong { color: var(--incorrect); }
+
+  .review-unanswered {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 4px;
+  }
+
   .toast {
     position: fixed;
     bottom: 24px;
@@ -319,7 +453,9 @@
   }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-  
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
 </style>
 </head>
 <body>
@@ -368,6 +504,11 @@
     <div class="results-detail" id="resultsDetail"></div>
     <div class="results-actions">
       <button class="nav-btn submit-btn" onclick="exitQuiz()">Back to quizzes</button>
+    </div>
+
+    <div class="review-section" id="reviewSection">
+      <div class="review-heading">Review your answers</div>
+      <div id="reviewList"></div>
     </div>
   </div>
 
@@ -713,15 +854,31 @@
     if (currentQuiz.isStatic) {
       const total = currentQuiz.questions.length;
       let score = 0;
+      const breakdown = [];
 
       currentQuiz.questions.forEach(q => {
-        if (answers[q.question_id] === q.correct_option) score++;
+        const selected = answers[q.question_id] || null;
+        const isCorrect = selected === q.correct_option;
+        if (isCorrect) score++;
+
+        breakdown.push({
+          question_id: q.question_id,
+          question_text: q.question_text,
+          option_a: q.option_a,
+          option_b: q.option_b,
+          option_c: q.option_c,
+          option_d: q.option_d,
+          selected_option: selected,
+          correct_option: q.correct_option,
+          is_correct: isCorrect
+        });
       });
 
       showResults({
         score,
         totalQuestions: total,
-        percentage: Math.round((score / total) * 100)
+        percentage: Math.round((score / total) * 100),
+        breakdown
       });
       return;
     }
@@ -761,6 +918,64 @@
     document.getElementById("scorePercent").textContent = `${data.percentage}%`;
     document.getElementById("resultsDetail").textContent =
       `You got ${data.score} out of ${data.totalQuestions} correct.`;
+
+    renderReview(data.breakdown || []);
+  }
+
+  function renderReview(breakdown) {
+    const reviewSection = document.getElementById("reviewSection");
+    const reviewList = document.getElementById("reviewList");
+
+    if (!breakdown.length) {
+      reviewSection.style.display = "none";
+      return;
+    }
+
+    reviewSection.style.display = "block";
+
+    const optionKeys = ["A", "B", "C", "D"];
+
+    reviewList.innerHTML = breakdown.map((item, i) => {
+      const optionsHtml = optionKeys.map(key => {
+        const text = item[`option_${key.toLowerCase()}`];
+        const isCorrectAnswer = key === item.correct_option;
+        const isSelected = key === item.selected_option;
+        const isWrongSelected = isSelected && !isCorrectAnswer;
+
+        let classes = "review-option";
+        if (isCorrectAnswer) classes += " is-correct-answer";
+        if (isWrongSelected) classes += " is-wrong-selected";
+
+        let tag = "";
+        if (isCorrectAnswer) tag = `<span class="review-tag tag-correct">Correct answer</span>`;
+        else if (isWrongSelected) tag = `<span class="review-tag tag-wrong">Your answer</span>`;
+
+        return `
+          <div class="${classes}">
+            <div class="option-letter">${key}</div>
+            <div class="option-text">${escapeHtml(text)}</div>
+            ${tag}
+          </div>
+        `;
+      }).join("");
+
+      const unanswered = !item.selected_option
+        ? `<div class="review-unanswered">You didn't answer this question.</div>`
+        : "";
+
+      return `
+        <div class="review-card ${item.is_correct ? "correct" : "incorrect"}">
+          <div class="review-q-header">
+            <div class="review-q-text">${i + 1}. ${escapeHtml(item.question_text)}</div>
+            <div class="review-badge ${item.is_correct ? "correct" : "incorrect"}">
+              ${item.is_correct ? "Correct" : "Incorrect"}
+            </div>
+          </div>
+          ${optionsHtml}
+          ${unanswered}
+        </div>
+      `;
+    }).join("");
   }
 
   function exitQuiz() {
