@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>NoEtra | Admin Panel</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- =========================
+         NOETRA NAVBAR
+    ========================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🎓 NoEtra
+    </div>
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open menu"
+    >
+        ☰
+    </button>
+
+</header>
+
+
+<!-- =========================
+     SIDE MENU
+========================= -->
+
+<div
+    class="menu-overlay"
+    id="menuOverlay">
+</div>
+
+
+<aside
+    class="side-menu"
+    id="sideMenu">
+
+    <button
+        class="close-menu"
+        id="closeMenu"
+        type="button"
+        aria-label="Close menu"
+    >
+        ×
+    </button>
+
+    <div class="side-menu-logo">
+        🎓 NoEtra
+    </div>
+
+    <nav class="side-menu-links">
+
+        <a href="index.html">
+            🏠 Home
+        </a>
+
+        <a href="dashboard.html">
+            📊 Dashboard
+        </a>
+
+        <a href="notes.html">
+            📝 Notes
+        </a>
+
+        <a href="quiz.html">
+            🧠 Quiz
+        </a>
+
+        <a href="community.html">
+            💬 Community
+        </a>
+
+        <a href="bookmark.html">
+            🔖 Bookmarks
+        </a>
+
+    </nav>
+
+</aside>
+
+
+    <!-- =========================
+         ADMIN HEADER
+    ========================== -->
+
+    <header>
+
+        <h1>
+            ⚙️ Admin Panel
+        </h1>
+
+        <p>
+            Manage NoEtra users, resources and community content.
+        </p>
+
+    </header>
+
+
+    <!-- =========================
+         ADMIN CONTENT
+    ========================== -->
+
+    <main class="admin">
+
+        <div class="admin-container">
+
+
+            <!-- =====================
+                 RESOURCE MANAGEMENT
+            ====================== -->
+
+            <div class="admin-card" id="section-resources">
+
+                <h3>
+                    📚 Manage Resources
+                </h3>
+
+                <p>
+                    View and manage learning resources.
+                </p>
+
+                <button
+                    id="loadResourcesBtn"
+                    type="button">
+
+                    View Resources
+
+                </button>
+
+                <div
+                    id="resourceList"
+                    class="admin-list">
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================
+                 USER MANAGEMENT
+            ====================== -->
+
+            <div class="admin-card" id="section-users">
+
+                <h3>
+                    👥 Manage Users
+                </h3>
+
+                <p>
+                    View registered NoEtra users.
+                </p>
+
+                <button
+                    id="loadUsersBtn"
+                    type="button">
+
+                    View Users
+
+                </button>
+
+                <div
+                    id="userList"
+                    class="admin-list">
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================
+                 COMMUNITY MANAGEMENT
+            ====================== -->
+
+            <div class="admin-card" id="section-community">
+
+                <h3>
+                    💬 Manage Community
+                </h3>
+
+                <p>
+                    View and manage community discussions.
+                </p>
+
+                <button
+                    id="loadDiscussionsBtn"
+                    type="button">
+
+                    View Discussions
+
+                </button>
+
+                <div id="adminDiscussionList" class="admin-list"></div>
+
+            </div>
+
+
+            <!-- =====================
+                 CREATE CONTENT
+                 (wraps the 4 creation cards below so the
+                 whole group can be shown/hidden together
+                 when arriving via admin.html#section-create)
+            ====================== -->
+
+            <div id="section-create">
+
+
+                <!-- CREATE TOPIC / ROADMAP -->
+
+                <div class="admin-card">
+
+                    <h3>🗺️ Create Topic / Roadmap</h3>
+                    <p>Add a new topic with its learning roadmap.</p>
+
+                    <input type="text" id="newTopicName" placeholder="Topic name (e.g. Web Development)">
+                    <textarea id="newTopicRoadmap" placeholder="Roadmap steps (one per line)"></textarea>
+                    <textarea id="newTopicNotes" placeholder="AI notes / description"></textarea>
+
+                    <select id="newTopicDifficulty">
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+
+                    <button id="createTopicBtn" type="button">Create Topic</button>
+                    <p id="createTopicMessage"></p>
+
+                </div>
+
+
+                <!-- ADD RESOURCE TO A TOPIC -->
+
+                <div class="admin-card">
+
+                    <h3>📎 Add Resource</h3>
+                    <p>Attach a resource to an existing topic.</p>
+
+                    <select id="resourceTopicSelect">
+                        <option value="">Loading topics...</option>
+                    </select>
+
+                    <select id="newResourceType">
+                        <option value="YouTube">YouTube</option>
+                        <option value="Google">Google</option>
+                        <option value="PDF Book">PDF Book</option>
+                        <option value="Lecture Notes">Lecture Notes</option>
+                        <option value="Documentation">Documentation</option>
+                        <option value="GitHub Repo">GitHub Repo</option>
+                        <option value="Article">Article</option>
+                        <option value="Practice Website">Practice Website</option>
+                    </select>
+
+                    <input type="text" id="newResourceTitle" placeholder="Resource title">
+                    <input type="text" id="newResourceLink" placeholder="Resource link (https://...)">
+
+                    <button id="addResourceBtn" type="button">Add Resource</button>
+                    <p id="addResourceMessage"></p>
+
+                </div>
+
+
+                <!-- CREATE QUIZ -->
+
+                <div class="admin-card">
+
+                    <h3>🧠 Create Quiz</h3>
+                    <p>Start a new quiz for a topic.</p>
+
+                    <input type="text" id="newQuizTopic" placeholder="Topic name (e.g. Web Development)">
+                    <input type="text" id="newQuizTitle" placeholder="Quiz title">
+                    <textarea id="newQuizDescription" placeholder="Short description"></textarea>
+
+                    <button id="createQuizBtn" type="button">Create Quiz</button>
+                    <p id="createQuizMessage"></p>
+
+                </div>
+
+
+                <!-- ADD QUESTION TO A QUIZ -->
+
+                <div class="admin-card">
+
+                    <h3>❓ Add Question</h3>
+                    <p>Add a question to an existing quiz.</p>
+
+                    <select id="questionQuizSelect">
+                        <option value="">Loading quizzes...</option>
+                    </select>
+
+                    <textarea id="newQuestionText" placeholder="Question text"></textarea>
+
+                    <input type="text" id="optionA" placeholder="Option A">
+                    <input type="text" id="optionB" placeholder="Option B">
+                    <input type="text" id="optionC" placeholder="Option C">
+                    <input type="text" id="optionD" placeholder="Option D">
+
+                    <select id="correctOption">
+                        <option value="A">Correct: A</option>
+                        <option value="B">Correct: B</option>
+                        <option value="C">Correct: C</option>
+                        <option value="D">Correct: D</option>
+                    </select>
+
+                    <button id="addQuestionBtn" type="button">Add Question</button>
+                    <p id="addQuestionMessage"></p>
+
+                </div>
+
+
+            </div>
+            <!-- end #section-create -->
+
+        </div>
+        <!-- end .admin-container -->
+
+
+        <!-- =========================
+             BACK TO DASHBOARD
+        ========================== -->
+
+        <button
+            id="dashboardBtn"
+            type="button">
+
+            ← Back to Dashboard
+
+        </button>
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="js/script.js"></script>
+    <script src="js/admin.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const menuToggle = document.getElementById("menuToggle");
+    const sideMenu = document.getElementById("sideMenu");
+    const closeMenu = document.getElementById("closeMenu");
+    const menuOverlay = document.getElementById("menuOverlay");
+
+    if (menuToggle && sideMenu) {
+
+        menuToggle.addEventListener("click", function () {
+            sideMenu.classList.add("active");
+
+            if (menuOverlay) {
+                menuOverlay.classList.add("active");
+            }
+        });
+
+    }
+
+    if (closeMenu && sideMenu) {
+
+        closeMenu.addEventListener("click", function () {
+            sideMenu.classList.remove("active");
+
+            if (menuOverlay) {
+                menuOverlay.classList.remove("active");
+            }
+        });
+
+    }
+
+    if (menuOverlay && sideMenu) {
+
+        menuOverlay.addEventListener("click", function () {
+            sideMenu.classList.remove("active");
+            menuOverlay.classList.remove("active");
+        });
+
+    }
+
+});
+</script>
+
+</body>
+
+</html>

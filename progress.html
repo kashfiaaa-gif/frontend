@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NoEtra - Learning Progress</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body class="progress-page">
+
+
+<!-- =========================
+     NOETRA NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🎓 NoEtra
+    </div>
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open menu">
+
+        ☰
+
+    </button>
+
+</header>
+
+
+<!-- =========================
+     SIDE MENU OVERLAY
+========================= -->
+
+<div
+    class="menu-overlay"
+    id="menuOverlay">
+</div>
+
+
+<!-- =========================
+     SIDE MENU
+========================= -->
+
+<aside
+    class="side-menu"
+    id="sideMenu">
+
+    <button
+        class="close-menu"
+        id="closeMenu"
+        type="button"
+        aria-label="Close menu">
+
+        ×
+
+    </button>
+
+
+    <div class="side-menu-logo">
+        🎓 NoEtra
+    </div>
+
+
+    <nav class="side-menu-links">
+
+        <a href="index.html">
+            🏠 Home
+        </a>
+
+        <a href="dashboard.html">
+            📊 Dashboard
+        </a>
+
+        <a href="notes.html">
+            📝 Notes
+        </a>
+
+        <a href="quiz.html">
+            🧠 Quiz
+        </a>
+
+        <a href="community.html">
+            💬 Community
+        </a>
+
+        <a href="bookmark.html">
+            🔖 Bookmarks
+        </a>
+
+        <a href="resources.html">
+            📚 Resources
+        </a>
+
+        <a href="roadmap.html">
+            🗺️ Roadmap
+        </a>
+
+        <a href="progress.html">
+            📈 Progress
+        </a>
+
+        <a href="rating.html">
+            ⭐ Resource Rating
+        </a>
+
+        <a href="profile.html">
+            👤 Profile
+        </a>
+
+        <a href="admin.html">
+            ⚙️ Admin
+        </a>
+
+    </nav>
+
+</aside>
+
+
+<!-- =========================
+     PAGE HEADER
+========================= -->
+
+<header class="progress-header">
+
+    <h1>
+        Learning Progress
+    </h1>
+
+    <p>
+        Track your learning journey and completed topics.
+    </p>
+
+</header>
+
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
+<main class="progress-container">
+
+
+    <!-- OVERALL PROGRESS -->
+
+    <section class="progress-card">
+
+        <h2>
+            📊 Overall Progress
+        </h2>
+
+        <p>
+            Your current learning progress
+        </p>
+
+
+        <div class="progress-bar-container">
+
+            <progress
+                id="progressBar"
+                value="0"
+                max="100">
+            </progress>
+
+        </div>
+
+
+        <h3 id="progressText">
+            0%
+        </h3>
+
+    </section>
+
+
+    <!-- LEARNING STATUS -->
+
+    <section class="progress-card">
+
+        <h2>
+            📚 Learning Status
+        </h2>
+
+
+        <div class="progress-stats">
+
+            <div class="progress-stat">
+
+                <span class="progress-icon">
+                    📖
+                </span>
+
+                <h3>
+                    Topics Started
+                </h3>
+
+                <p id="topicsStarted">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="progress-stat">
+
+                <span class="progress-icon">
+                    ✅
+                </span>
+
+                <h3>
+                    Topics Completed
+                </h3>
+
+                <p id="topicsCompleted">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="progress-stat">
+
+                <span class="progress-icon">
+                    🎯
+                </span>
+
+                <h3>
+                    Completion Rate
+                </h3>
+
+                <p id="completionRate">
+                    0%
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CURRENT LEARNING -->
+
+    <section class="progress-card">
+
+        <h2>
+            🚀 Current Learning
+        </h2>
+
+        <div id="currentLearning">
+
+            <p>
+                Start learning a topic to see your progress here.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMPLETED TOPICS -->
+
+    <section class="progress-card">
+
+        <h2>
+            🏆 Completed Topics
+        </h2>
+
+
+        <div id="completedTopics">
+
+            <p>
+                No completed topics yet.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROGRESS ACTION -->
+
+    <section class="progress-card progress-action">
+
+        <h2>
+            Keep Learning! 💪
+        </h2>
+
+        <p>
+            Continue exploring resources and completing your learning goals.
+        </p>
+
+
+        <button
+            type="button"
+            onclick="window.location.href='resources.html'">
+
+            Explore Resources
+
+        </button>
+
+
+        <button
+            type="button"
+            onclick="window.location.href='roadmap.html'">
+
+            View Roadmap
+
+        </button>
+
+    </section>
+
+
+    <!-- BACK TO DASHBOARD -->
+
+    <button
+        type="button"
+        class="back-dashboard-btn"
+        onclick="goDashboard()">
+
+        ← Back to Dashboard
+
+    </button>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+
+        <div class="footer-section">
+
+            <h2>
+                NoEtra
+            </h2>
+
+            <p>
+                Learn anything from one platform through
+                roadmaps, resources and quizzes.
+            </p>
+
+        </div>
+
+
+        <div class="footer-section">
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="dashboard.html">
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="notes.html">
+                        Notes
+                    </a>
+                </li>
+
+                <li>
+                    <a href="quiz.html">
+                        Quiz
+                    </a>
+                </li>
+
+                <li>
+                    <a href="community.html">
+                        Community
+                    </a>
+                </li>
+
+                <li>
+                    <a href="admin.html">
+                        Admin
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="footer-section">
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                Email: info@noetra.com
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <hr>
+
+
+    <p class="copyright">
+
+        © 2026 NoEtra. All Rights Reserved.
+
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     MAIN JAVASCRIPT
+========================= -->
+
+<script src="js/script.js"></script>
+
+
+<!-- =========================
+     HAMBURGER MENU
+========================= -->
+
+<script>
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const closeMenu =
+        document.getElementById("closeMenu");
+
+    const sideMenu =
+        document.getElementById("sideMenu");
+
+    const menuOverlay =
+        document.getElementById("menuOverlay");
+
+
+    if (menuToggle && sideMenu) {
+
+        menuToggle.addEventListener("click", function () {
+
+            sideMenu.classList.add("active");
+
+            if (menuOverlay) {
+                menuOverlay.classList.add("active");
+            }
+
+        });
+
+    }
+
+
+    if (closeMenu && sideMenu) {
+
+        closeMenu.addEventListener("click", function () {
+
+            sideMenu.classList.remove("active");
+
+            if (menuOverlay) {
+                menuOverlay.classList.remove("active");
+            }
+
+        });
+
+    }
+
+
+    if (menuOverlay && sideMenu) {
+
+        menuOverlay.addEventListener("click", function () {
+
+            sideMenu.classList.remove("active");
+
+            menuOverlay.classList.remove("active");
+
+        });
+
+    }
+
+</script>
+
+
+</body>
+
+</html>

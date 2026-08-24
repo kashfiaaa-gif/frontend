@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Community | NoEtra</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+<style>
+    /* ---------------------------------------------------------
+       Side menu scroll fix.
+
+       No fixed height/overflow rule meant scrolling while
+       hovering the sidebar scrolled the page behind it instead.
+       This pins the menu to the screen with its own scrollbar,
+       and locks background scroll while it's open.
+    --------------------------------------------------------- */
+
+    .side-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+</style>
+
+</head>
+
+<body>
+
+    <!-- =========================
+         NOETRA NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🎓 NoEtra
+        </div>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- =========================
+         SIDE MENU OVERLAY
+    ========================== -->
+
+    <div
+        class="menu-overlay"
+        id="menuOverlay">
+    </div>
+
+
+    <!-- =========================
+         SIDE MENU
+    ========================== -->
+
+    <aside
+        class="side-menu"
+        id="sideMenu">
+
+        <button
+            class="close-menu"
+            id="closeMenu"
+            type="button"
+            aria-label="Close menu"
+        >
+            ×
+        </button>
+
+        <div class="side-menu-logo">
+            🎓 NoEtra
+        </div>
+
+        <nav class="side-menu-links">
+
+            <a href="index.html">
+                🏠 Home
+            </a>
+
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+
+            <a href="notes.html">
+                📝 Notes
+            </a>
+
+            <a href="quiz.html">
+                🧠 Quiz
+            </a>
+
+            <a href="community.html">
+                💬 Community
+            </a>
+
+            <a href="bookmark.html">
+                🔖 Bookmarks
+            </a>
+
+            <a href="resources.html">
+                📚 Resources
+            </a>
+
+            <a href="roadmap.html">
+                🗺️ Roadmap
+            </a>
+
+            <a href="progress.html">
+                📈 Progress
+            </a>
+
+            <a href="rating.html">
+                ⭐ Resource Rating
+            </a>
+
+            <a href="profile.html">
+                👤 Profile
+            </a>
+
+            <a href="admin.html">
+                ⚙️ Admin
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =========================
+         COMMUNITY CONTENT
+    ========================== -->
+
+    <main class="community-page">
+
+        <h1>💬 Community</h1>
+
+
+        <!-- CREATE DISCUSSION -->
+
+        <form id="postForm">
+
+            <input
+                type="text"
+                id="title"
+                placeholder="Discussion title"
+            >
+
+            <textarea
+                id="content"
+                placeholder="Write your discussion..."
+            ></textarea>
+
+            <button
+                id="postBtn"
+                type="submit"
+            >
+                📝 Post Discussion
+            </button>
+
+        </form>
+
+
+        <!-- MESSAGE -->
+
+        <p id="message"></p>
+
+
+        <!-- DISCUSSION LIST -->
+
+        <div id="discussionList"></div>
+
+    </main>
+
+
+    <!-- =========================
+         COMMUNITY JAVASCRIPT
+    ========================== -->
+
+    <script src="js/script.js"></script>
+
+
+    <!-- =========================
+         HAMBURGER MENU
+    ========================== -->
+
+    <script>
+    (function () {
+
+        const menuToggle = document.getElementById("menuToggle");
+        const closeMenu = document.getElementById("closeMenu");
+        const sideMenu = document.getElementById("sideMenu");
+        const menuOverlay = document.getElementById("menuOverlay");
+
+        if (!menuToggle || !sideMenu) return;
+
+        function openMenu() {
+            sideMenu.classList.add("active");
+            if (menuOverlay) menuOverlay.classList.add("active");
+            // Lock background scroll so wheel/touch events over
+            // the sidebar scroll the sidebar, not the page.
+            document.body.classList.add("menu-open");
+        }
+
+        function closeSideMenu() {
+            sideMenu.classList.remove("active");
+            if (menuOverlay) menuOverlay.classList.remove("active");
+            document.body.classList.remove("menu-open");
+        }
+
+        /* OPEN MENU */
+        menuToggle.addEventListener("click", openMenu);
+
+        /* CLOSE MENU */
+        if (closeMenu) {
+            closeMenu.addEventListener("click", closeSideMenu);
+        }
+
+        /* CLOSE BY CLICKING OVERLAY */
+        if (menuOverlay) {
+            menuOverlay.addEventListener("click", closeSideMenu);
+        }
+
+        /* CLOSE ON ESCAPE */
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") closeSideMenu();
+        });
+
+        /* CLOSE WHEN A LINK IS CLICKED */
+        sideMenu.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", closeSideMenu);
+        });
+
+    })();
+    </script>
+
+</body>
+
+</html>

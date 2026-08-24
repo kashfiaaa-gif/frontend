@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NoEtra - Roadmap</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="roadmap-page">
+
+<!-- =========================
+     NOETRA NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🎓 NoEtra
+    </div>
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open menu">
+        ☰
+    </button>
+
+</header>
+
+
+<!-- =========================
+     OVERLAY
+========================= -->
+
+<div
+    class="menu-overlay"
+    id="menuOverlay">
+</div>
+
+
+<!-- =========================
+     SIDE MENU
+========================= -->
+
+<aside
+    class="side-menu"
+    id="sideMenu">
+
+    <button
+        class="close-menu"
+        id="closeMenu"
+        type="button"
+        aria-label="Close menu">
+        ×
+    </button>
+
+    <div class="side-menu-logo">
+        🎓 NoEtra
+    </div>
+
+    <nav class="side-menu-links">
+
+        <a href="index.html">🏠 Home</a>
+
+        <a href="dashboard.html">📊 Dashboard</a>
+
+        <a href="notes.html">📝 Notes</a>
+
+        <a href="quiz.html">🧠 Quiz</a>
+
+        <a href="community.html">💬 Community</a>
+
+        <a href="bookmark.html">🔖 Bookmarks</a>
+
+        <a href="resources.html">📚 Resources</a>
+
+        <a href="roadmap.html">🗺️ Roadmap</a>
+
+        <a href="progress.html">📈 Progress</a>
+
+        <a href="rating.html">⭐ Resource Rating</a>
+
+        <a href="profile.html">👤 Profile</a>
+
+        <a href="admin.html">⚙️ Admin</a>
+
+    </nav>
+
+</aside>
+
+
+<!-- =========================
+     ROADMAP HEADER
+========================= -->
+
+<header class="roadmap-header">
+
+    <h1>Learning Roadmap</h1>
+
+    <p>
+        Generate a personalized learning roadmap
+        based on your learning goal.
+    </p>
+
+</header>
+
+
+<!-- =========================
+     ROADMAP GENERATOR
+========================= -->
+
+<main class="roadmap-page-container">
+
+    <section class="roadmap-generator-card">
+
+        <h2>Create Your Roadmap</h2>
+
+        <p>
+            Enter a topic and choose your difficulty level.
+        </p>
+
+
+        <form id="roadmapForm">
+
+            <label for="roadmapTopic">
+                Learning Topic
+            </label>
+
+            <input
+                type="text"
+                id="roadmapTopic"
+                placeholder="e.g. Web Development"
+                required>
+
+
+            <label for="roadmapLevel">
+                Difficulty Level
+            </label>
+
+            <select id="roadmapLevel" required>
+
+                <option value="">
+                    Select Level
+                </option>
+
+                <option value="Beginner">
+                    Beginner
+                </option>
+
+                <option value="Intermediate">
+                    Intermediate
+                </option>
+
+                <option value="Advanced">
+                    Advanced
+                </option>
+
+            </select>
+
+
+            <button type="submit">
+                Generate Roadmap
+            </button>
+
+        </form>
+
+
+        <p id="roadmapMessage"></p>
+
+    </section>
+
+
+    <!-- =========================
+         GENERATED ROADMAP
+    ========================= -->
+
+    <section class="generated-roadmap">
+
+        <h2>Your Roadmap</h2>
+
+        <div id="roadmapResult">
+
+            <!-- Backend connect করার পরে
+                 এখানে roadmap আসবে -->
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <div class="footer-section">
+
+            <h2>NoEtra</h2>
+
+            <p>
+                Learn anything from one platform through
+                roadmaps, resources and quizzes.
+            </p>
+
+        </div>
+
+
+        <div class="footer-section">
+
+            <h3>Quick Links</h3>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="dashboard.html">Dashboard</a>
+                </li>
+
+                <li>
+                    <a href="resources.html">Resources</a>
+                </li>
+
+                <li>
+                    <a href="bookmark.html">Bookmarks</a>
+                </li>
+
+                <li>
+                    <a href="progress.html">Progress</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="footer-section">
+
+            <h3>Contact</h3>
+
+            <p>
+                Email: info@noetra.com
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <hr>
+
+    <p class="copyright">
+        © 2026 NoEtra. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     ROADMAP JS
+========================= -->
+
+<script src="js/roadmap.js"></script>
+
+
+<!-- =========================
+     HAMBURGER MENU
+========================= -->
+
+<script>
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const closeMenu =
+    document.getElementById("closeMenu");
+
+const sideMenu =
+    document.getElementById("sideMenu");
+
+const menuOverlay =
+    document.getElementById("menuOverlay");
+
+
+if (menuToggle && sideMenu) {
+
+    menuToggle.addEventListener("click", function () {
+
+        sideMenu.classList.add("active");
+
+        if (menuOverlay) {
+            menuOverlay.classList.add("active");
+        }
+
+    });
+
+}
+
+
+if (closeMenu && sideMenu) {
+
+    closeMenu.addEventListener("click", function () {
+
+        sideMenu.classList.remove("active");
+
+        if (menuOverlay) {
+            menuOverlay.classList.remove("active");
+        }
+
+    });
+
+}
+
+
+if (menuOverlay && sideMenu) {
+
+    menuOverlay.addEventListener("click", function () {
+
+        sideMenu.classList.remove("active");
+
+        menuOverlay.classList.remove("active");
+
+    });
+
+}
+
+</script>
+
+</body>
+
+</html>
