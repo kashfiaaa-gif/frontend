@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoEtra</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="home-page"></body>
+<!-- =========================
+     NOETRA NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🎓 NoEtra
+    </div>
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open menu"
+    >
+        ☰
+    </button>
+
+</header>
+
+
+<!-- =========================
+     SIDE MENU
+========================= -->
+
+<div
+    class="menu-overlay"
+    id="menuOverlay">
+</div>
+
+
+<aside
+    class="side-menu"
+    id="sideMenu">
+
+    <button
+        class="close-menu"
+        id="closeMenu"
+        type="button"
+        aria-label="Close menu"
+    >
+        ×
+    </button>
+
+    <div class="side-menu-logo">
+        🎓 NoEtra
+    </div>
+
+    <nav class="side-menu-links">
+
+        <a href="index.html">
+            🏠 Home
+        </a>
+
+        <a href="dashboard.html">
+            📊 Dashboard
+        </a>
+
+        <a href="notes.html">
+            📝 Notes
+        </a>
+
+        <a href="quiz.html">
+            🧠 Quiz
+        </a>
+
+        <a href="community.html">
+            💬 Community
+        </a>
+
+        <a href="bookmark.html">
+            🔖 Bookmarks
+        </a>
+
+    </nav>
+
+</aside>
+
+<header>
+
+    <!-- ================= NAVBAR ================= -->
+
+    
+
+
+
+    <!-- ================= SIDE MENU ================= -->
+
+    <aside class="side-menu" id="sideMenu">
+
+        <div class="side-menu-header">
+
+            <h2>NoEtra</h2>
+
+            <button class="close-menu" id="closeMenu" type="button">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="side-menu-links">
+
+            <a href="index.html">
+                🏠 <span>Home</span>
+            </a>
+
+            <a href="dashboard.html">
+                📊 <span>Dashboard</span>
+            </a>
+
+            <a href="notes.html">
+                📝 <span>Notes</span>
+            </a>
+
+            <a href="quiz.html">
+                🧠 <span>Quiz</span>
+            </a>
+
+            <a href="community.html">
+                👥 <span>Community</span>
+            </a>
+
+            <a href="bookmarks.html">
+                🔖 <span>Bookmarks</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Dark overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+
+    <!-- ================= HOME INTRO ================= -->
+
+    <div class="logo-section">
+
+        <h1>NoEtra</h1>
+
+        <p>
+            A Smart Self-Learning Roadmap
+        </p>
+
+    </div>
+
+</header>
+
+
+<main>
+
+
+    <!-- ================= HERO / SEARCH ================= -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h2>Master Your Learning</h2>
+
+            <p>
+                Search any topic and get a complete learning roadmap,
+                resources, quizzes and practice materials in one place.
+            </p>
+
+
+            <form id="searchForm">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search any topic...."
+                >
+
+                <button type="submit" id="searchBtn">
+                    Search
+                </button>
+
+            </form>
+
+
+            <div id="searchResult"></div>
+
+
+            <h3>Choose Your Learning Level</h3>
+
+
+            <div class="level-buttons">
+
+                <button
+                    class="level-btn"
+                    data-level="Beginner"
+                    type="button"
+                >
+                    🌱 Beginner
+                </button>
+
+                <button
+                    class="level-btn"
+                    data-level="Intermediate"
+                    type="button"
+                >
+                    🚀 Intermediate
+                </button>
+
+                <button
+                    class="level-btn"
+                    data-level="Advanced"
+                    type="button"
+                >
+                    🎯 Advanced
+                </button>
+
+            </div>
+
+
+            <div id="levelResult"></div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= POPULAR TOPICS ================= -->
+
+    <section class="roadmaps">
+
+        <h2>Popular Topics</h2>
+
+        <p class="section-text">
+            Start learning from available topics.
+        </p>
+
+
+        <div class="card-container" id="popularTopics">
+
+            <p>Loading topics...</p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= LEARNING RESOURCES ================= -->
+
+    <section class="resources">
+
+        <h2>Learning Resources</h2>
+
+        <p>
+            Access videos, books, documentation, research papers
+            and more for any topic.
+        </p>
+
+
+        <div
+            class="resource-container"
+            id="resourceContainer"
+        >
+
+            <p>
+                Search for a topic to view available resources.
+            </p>
+
+        </div>
+
+
+        <div id="resourceResult"></div>
+
+    </section>
+
+
+
+    <!-- ================= ROADMAP GENERATOR ================= -->
+
+    <section class="roadmap-generator">
+
+        <h2>Roadmap Generator</h2>
+
+        <p>
+            Search for a topic to view its learning roadmap.
+        </p>
+
+
+        <div
+            class="roadmap-container"
+            id="roadmapContainer"
+        >
+
+            <p>
+                No roadmap selected yet.
+            </p>
+
+        </div>
+
+
+        <div id="roadmapResult"></div>
+
+    </section>
+
+
+
+    <!-- ================= TOP RATED RESOURCES ================= -->
+
+    <section class="rating">
+
+        <h2>Top Rated Resources</h2>
+
+
+        <div
+            class="rating-container"
+            id="ratingContainer"
+        >
+
+            <p>
+                Ratings will appear here when resources are available.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+
+        <div class="footer-section">
+
+            <h2>NoEtra</h2>
+
+            <p>
+                Learn anything from one platform through
+                roadmaps, resources and quizzes.
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-section">
+
+            <h3>Quick Links</h3>
+
+            <ul>
+
+                <li>
+                    <a href="index.html"> Home</a>
+                </li>
+
+                <li>
+                    <a href="dashboard.html"> Dashboard</a>
+                </li>
+
+                <li>
+                    <a href="notes.html"> Notes</a>
+                </li>
+
+                <li>
+                    <a href="quiz.html"> Quiz</a>
+                </li>
+
+                <li>
+                    <a href="community.html"> Community</a>
+                </li>
+
+                <li>
+                    <a href="bookmarks.html"> Bookmarks</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="footer-section">
+
+            <h3>Contact</h3>
+
+            <p>
+                Email: info@noetra.com
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <hr>
+
+
+    <p class="copyright">
+        © 2026 NoEtra. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+
+<script src="js/script.js"></script>
+
+
+<!-- ================= MENU JAVASCRIPT ================= -->
+
+<script>
+
+    const menuToggle = document.getElementById("menuToggle");
+    const closeMenu = document.getElementById("closeMenu");
+    const sideMenu = document.getElementById("sideMenu");
+    const menuOverlay = document.getElementById("menuOverlay");
+
+
+    menuToggle.addEventListener("click", function () {
+
+        sideMenu.classList.add("active");
+        menuOverlay.classList.add("active");
+
+    });
+
+
+    closeMenu.addEventListener("click", function () {
+
+        sideMenu.classList.remove("active");
+        menuOverlay.classList.remove("active");
+
+    });
+
+
+    menuOverlay.addEventListener("click", function () {
+
+        sideMenu.classList.remove("active");
+        menuOverlay.classList.remove("active");
+
+    });
+
+</script>
+
+
+</body>
+
+</html>

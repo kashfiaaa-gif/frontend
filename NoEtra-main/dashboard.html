@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | NoEtra</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+<!-- =========================
+     NOETRA NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🎓 NoEtra
+    </div>
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open menu">
+
+        ☰
+
+    </button>
+
+</header>
+
+
+<!-- =========================
+     SIDE MENU OVERLAY
+========================= -->
+
+<div
+    class="menu-overlay"
+    id="menuOverlay">
+</div>
+
+
+<!-- =========================
+     SIDE MENU
+========================= -->
+
+<aside
+    class="side-menu"
+    id="sideMenu">
+
+    <button
+        class="close-menu"
+        id="closeMenu"
+        type="button"
+        aria-label="Close menu">
+
+        ×
+
+    </button>
+
+
+    <div class="side-menu-logo">
+        🎓 NoEtra
+    </div>
+
+
+    <nav class="side-menu-links">
+
+        <a href="index.html">
+            🏠 Home
+        </a>
+
+        <a href="dashboard.html">
+            📊 Dashboard
+        </a>
+
+        <a href="notes.html">
+            📝 Notes
+        </a>
+
+        <a href="quiz.html">
+            🧠 Quiz
+        </a>
+
+        <a href="community.html">
+            💬 Community
+        </a>
+
+        <a href="bookmark.html">
+            🔖 Bookmarks
+        </a>
+
+    </nav>
+
+</aside>
+
+
+<!-- =========================
+     DASHBOARD
+========================= -->
+
+<main class="dashboard">
+
+
+    <!-- WELCOME -->
+
+    <section class="welcome">
+
+        <h1>
+            Welcome
+            <span id="userName">User</span>!
+        </h1>
+
+        <p>
+            What do you want to learn today?
+        </p>
+
+
+        <!-- SEARCH -->
+
+        <div class="search">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search any topic..."
+                autocomplete="off">
+
+            <button
+                id="searchBtn"
+                type="button">
+
+                🔍 Search
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPLORE -->
+
+    <section class="dashboard-explore">
+
+        <h2>
+            Explore NoEtra
+        </h2>
+
+
+        <div class="option-grid">
+
+
+            <!-- RESOURCE -->
+
+            <div
+                class="option"
+                data-page="resources.html">
+
+                <span>📚</span>
+
+                <h3>
+                    Learning Resources
+                </h3>
+
+                <p>
+                    Find useful learning materials
+                </p>
+
+            </div>
+
+
+            <!-- BOOKMARK -->
+
+            <div
+                class="option"
+                data-page="bookmark.html">
+
+                <span>🔖</span>
+
+                <h3>
+                    Bookmarks
+                </h3>
+
+                <p>
+                    View your saved resources
+                </p>
+
+            </div>
+
+
+            <!-- ROADMAP -->
+
+            <div
+                class="option"
+                data-page="roadmap.html">
+
+                <span>🗺️</span>
+
+                <h3>
+                    Roadmap
+                </h3>
+
+                <p>
+                    Follow your learning path
+                </p>
+
+            </div>
+
+
+            <!-- QUIZ -->
+
+            <div
+                class="option"
+                data-page="quiz.html">
+
+                <span>📝</span>
+
+                <h3>
+                    Quiz
+                </h3>
+
+                <p>
+                    Test your knowledge
+                </p>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div
+                class="option"
+                data-page="progress.html">
+
+                <span>📈</span>
+
+                <h3>
+                    Progress
+                </h3>
+
+                <p>
+                    Track your learning progress
+                </p>
+
+            </div>
+
+
+            <!-- RATING -->
+
+            <div
+                class="option"
+                data-page="rating.html">
+
+                <span>⭐</span>
+
+                <h3>
+                    Resource Rating
+                </h3>
+
+                <p>
+                    Rate useful resources
+                </p>
+
+            </div>
+
+
+            <!-- NOTES -->
+
+            <div
+                class="option"
+                data-page="notes.html">
+
+                <span>💾</span>
+
+                <h3>
+                    Saved Notes
+                </h3>
+
+                <p>
+                    Manage your notes
+                </p>
+
+            </div>
+
+
+            <!-- COMMUNITY -->
+
+            <div
+                class="option"
+                data-page="community.html">
+
+                <span>💬</span>
+
+                <h3>
+                    Community
+                </h3>
+
+                <p>
+                    Discuss and learn together
+                </p>
+
+            </div>
+
+
+            <!-- PROFILE -->
+
+            <div
+                class="option"
+                data-page="profile.html">
+
+                <span>👤</span>
+
+                <h3>
+                    Profile
+                </h3>
+
+                <p>
+                    Manage your account
+                </p>
+
+            </div>
+
+
+            <!-- ADMIN -->
+
+            <div
+                class="option"
+                data-page="admin.html">
+
+                <span>⚙️</span>
+
+                <h3>
+                    Admin
+                </h3>
+
+                <p>
+                    Manage website content
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- LOGOUT -->
+
+    <button
+        id="logoutBtn"
+        class="logout"
+        type="button">
+
+        🚪 Logout
+
+    </button>
+
+
+</main>
+
+
+<!-- =========================
+     MAIN JAVASCRIPT
+========================= -->
+
+<script src="js/script.js"></script>
+
+
+<!-- =========================
+     HAMBURGER MENU JAVASCRIPT
+========================= -->
+
+<script>
+
+    const menuToggle = document.getElementById("menuToggle");
+    const closeMenu = document.getElementById("closeMenu");
+    const sideMenu = document.getElementById("sideMenu");
+    const menuOverlay = document.getElementById("menuOverlay");
+
+
+    /* OPEN MENU */
+
+    if (menuToggle && sideMenu) {
+
+        menuToggle.addEventListener("click", function () {
+
+            sideMenu.classList.add("active");
+
+            if (menuOverlay) {
+                menuOverlay.classList.add("active");
+            }
+
+        });
+
+    }
+
+
+    /* CLOSE MENU */
+
+    if (closeMenu && sideMenu) {
+
+        closeMenu.addEventListener("click", function () {
+
+            sideMenu.classList.remove("active");
+
+            if (menuOverlay) {
+                menuOverlay.classList.remove("active");
+            }
+
+        });
+
+    }
+
+
+    /* CLOSE WHEN CLICKING OUTSIDE */
+
+    if (menuOverlay && sideMenu) {
+
+        menuOverlay.addEventListener("click", function () {
+
+            sideMenu.classList.remove("active");
+
+            menuOverlay.classList.remove("active");
+
+        });
+
+    }
+
+</script>
+
+
+<!-- =========================
+     DASHBOARD ALIGNMENT FIX
+========================= -->
+
+<style>
+
+    /* Dashboard overall */
+
+    .dashboard-page .dashboard {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 45px 30px 60px;
+        box-sizing: border-box;
+    }
+
+
+    /* Welcome section */
+
+    .dashboard-page .welcome {
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+        padding: 30px 0 45px;
+    }
+
+
+    .dashboard-page .welcome h1 {
+        text-align: center;
+    }
+
+
+    .dashboard-page .welcome p {
+        text-align: center;
+    }
+
+
+    /* Search */
+
+    .dashboard-page .search {
+        width: 100%;
+        max-width: 650px;
+        margin: 28px auto;
+    }
+
+
+    /* Explore section */
+
+    .dashboard-explore {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    .dashboard-explore > h2 {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+
+    /* Cards */
+
+    .dashboard-page .option-grid {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(auto-fit, minmax(210px, 1fr));
+
+        gap: 20px;
+
+        justify-content: center;
+        align-items: stretch;
+    }
+
+
+    .dashboard-page .option {
+        width: 100%;
+        min-height: 190px;
+
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+    }
+
+
+    .dashboard-page .option h3 {
+        text-align: center;
+    }
+
+
+    .dashboard-page .option p {
+        text-align: center;
+    }
+
+
+    /* Logout */
+
+    .dashboard-page .logout {
+        display: block;
+        margin: 35px auto 0;
+    }
+
+
+    /* Mobile */
+
+    @media (max-width: 768px) {
+
+        .dashboard-page .dashboard {
+            padding: 30px 18px 50px;
+        }
+
+        .dashboard-page .option-grid {
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 14px;
+        }
+
+    }
+
+
+    @media (max-width: 430px) {
+
+        .dashboard-page .option-grid {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+</style>
+
+
+</body>
+
+</html>

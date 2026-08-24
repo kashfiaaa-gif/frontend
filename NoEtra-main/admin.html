@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>NoEtra | Admin Panel</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <!-- =========================
+     NOETRA NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🎓 NoEtra
+    </div>
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open menu"
+    >
+        ☰
+    </button>
+
+</header>
+
+
+<!-- =========================
+     SIDE MENU
+========================= -->
+
+<div
+    class="menu-overlay"
+    id="menuOverlay">
+</div>
+
+
+<aside
+    class="side-menu"
+    id="sideMenu">
+
+    <button
+        class="close-menu"
+        id="closeMenu"
+        type="button"
+        aria-label="Close menu"
+    >
+        ×
+    </button>
+
+    <div class="side-menu-logo">
+        🎓 NoEtra
+    </div>
+
+    <nav class="side-menu-links">
+
+        <a href="index.html">
+            🏠 Home
+        </a>
+
+        <a href="dashboard.html">
+            📊 Dashboard
+        </a>
+
+        <a href="notes.html">
+            📝 Notes
+        </a>
+
+        <a href="quiz.html">
+            🧠 Quiz
+        </a>
+
+        <a href="community.html">
+            💬 Community
+        </a>
+
+        <a href="bookmark.html">
+            🔖 Bookmarks
+        </a>
+
+    </nav>
+
+</aside>
+
+
+
+
+    <!-- =========================
+         ADMIN HEADER
+    ========================== -->
+
+    <header>
+
+        <h1>
+            ⚙️ Admin Panel
+        </h1>
+
+        <p>
+            Manage NoEtra users, resources and community content.
+        </p>
+
+    </header>
+
+
+    <!-- =========================
+         ADMIN CONTENT
+    ========================== -->
+
+    <main class="admin">
+
+        <div class="admin-container">
+
+
+            <!-- =====================
+                 RESOURCE MANAGEMENT
+            ====================== -->
+
+            <div class="admin-card">
+
+                <h3>
+                    📚 Manage Resources
+                </h3>
+
+                <p>
+                    View and manage learning resources.
+                </p>
+
+                <button
+                    id="loadResourcesBtn"
+                    type="button">
+
+                    View Resources
+
+                </button>
+
+                <div
+                    id="resourceList"
+                    class="admin-list">
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================
+                 USER MANAGEMENT
+            ====================== -->
+
+            <div class="admin-card">
+
+                <h3>
+                    👥 Manage Users
+                </h3>
+
+                <p>
+                    View registered NoEtra users.
+                </p>
+
+                <button
+                    id="loadUsersBtn"
+                    type="button">
+
+                    View Users
+
+                </button>
+
+                <div
+                    id="userList"
+                    class="admin-list">
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================
+                 COMMUNITY MANAGEMENT
+            ====================== -->
+
+            <div class="admin-card">
+
+                <h3>
+                    💬 Manage Community
+                </h3>
+
+                <p>
+                    View and manage community discussions.
+                </p>
+
+                <button
+                    id="loadDiscussionsBtn"
+                    type="button">
+
+                    View Discussions
+
+                </button>
+
+                <div
+                    id="discussionList"
+                    class="admin-list">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             BACK TO DASHBOARD
+        ========================== -->
+
+        <button
+            id="dashboardBtn"
+            type="button">
+
+            ← Back to Dashboard
+
+        </button>
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="js/admin.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const menuToggle = document.getElementById("menuToggle");
+    const sideMenu = document.getElementById("sideMenu");
+    const closeMenu = document.getElementById("closeMenu");
+    const menuOverlay = document.getElementById("menuOverlay");
+
+    if (menuToggle && sideMenu) {
+
+        menuToggle.addEventListener("click", function () {
+            sideMenu.classList.add("active");
+
+            if (menuOverlay) {
+                menuOverlay.classList.add("active");
+            }
+        });
+
+    }
+
+    if (closeMenu && sideMenu) {
+
+        closeMenu.addEventListener("click", function () {
+            sideMenu.classList.remove("active");
+
+            if (menuOverlay) {
+                menuOverlay.classList.remove("active");
+            }
+        });
+
+    }
+
+    if (menuOverlay && sideMenu) {
+
+        menuOverlay.addEventListener("click", function () {
+            sideMenu.classList.remove("active");
+            menuOverlay.classList.remove("active");
+        });
+
+    }
+
+});
+</script>
+
+</body>
+
+</html>
